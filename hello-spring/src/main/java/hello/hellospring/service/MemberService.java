@@ -3,19 +3,29 @@ package hello.hellospring.service;
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 // sevice는 business에 대해서
 // 아래 메소드는 business 메소드
+
+//@Service
 public class MemberService {
     //    private final MemberRepository memberRepository = new MemoryMemberRepository();
     private final MemberRepository memberRepository;
 
+    //@Autowired
     public MemberService(MemberRepository memberRepository) { // 외부에서 넣어주도록 변경
         this.memberRepository = memberRepository;
     }
+
+
+    // 생성자를 제외하고 필드(변수) 앞에 @Autowired 하는 방법이 있음.
+    // setter 앞에 Autowired를 붙일 수 있으나, 누군가 멤버 컨트롤러를 호출했을 때 publicd으로 노출이 되어있어야 함. 그러므로 중간에 잘못 바꾸면 문제가 생기게 됨.
+    // 생성자를 통해 주입하는 것을 권장.
 
     //회원가입
     public Long join(Member member) {

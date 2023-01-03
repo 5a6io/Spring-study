@@ -18,7 +18,7 @@ class MemberServiceTest {
     MemoryMemberRepository memberRepository; // 다른 레파지토리를 이용 중 같은 인스턴스를 하용하기 위해서 membersevice에서 final로 작성된 변수 변ㅡ
 
     @BeforeEach
-    public void beforEach(){ // 같은 메모리 멤버 레파지토리를 사용. dependency injection
+    public void beforeEach(){ // 같은 메모리 멤버 레파지토리를 사용. dependency injection
         memberRepository = new MemoryMemberRepository();
         memberService = new MemberService(memberRepository);
     }

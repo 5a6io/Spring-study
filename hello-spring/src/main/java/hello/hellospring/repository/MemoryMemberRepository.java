@@ -1,9 +1,12 @@
 package hello.hellospring.repository;
 
 import hello.hellospring.domain.Member;
+import jdk.jfr.MemoryAddress;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+//@Repository 스프링 빈 자동 등록 방법
 public class MemoryMemberRepository implements MemberRepository {
     private static Map<Long, Member> store = new HashMap<>(); //실무에서는 동시성 문제로 concurrent hashmap 사용
     private static long sequence = 0L; // 0, 1, 2,... 등 key 값 생성, 실무에서는 동시성 문제로 automic long 사용.
