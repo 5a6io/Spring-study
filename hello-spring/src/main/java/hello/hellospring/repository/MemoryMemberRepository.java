@@ -12,7 +12,7 @@ public class MemoryMemberRepository implements MemberRepository {
     private static long sequence = 0L; // 0, 1, 2,... 등 key 값 생성, 실무에서는 동시성 문제로 automic long 사용.
     @Override
     public Member save(Member member) {
-        member.setId(sequence);
+        member.setId(++sequence);
         store.put(member.getId(), member);
         return member;
     }
