@@ -13,8 +13,13 @@ repositories {
 }
 
 dependencies {
+	// implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'jakarta.servlet:jakarta.servlet-api'
+	runtimeOnly 'org.springframework.boot:spring-boot-properties-migrator'
+	runtimeOnly 'mysql:mysql-connector-java'
 	testImplementation ('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}

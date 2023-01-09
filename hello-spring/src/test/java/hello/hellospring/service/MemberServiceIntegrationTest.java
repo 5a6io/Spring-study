@@ -2,33 +2,33 @@ package hello.hellospring.service;
 
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemoryMemberRepository;
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-class MemberServiceTest {
+@SpringBootTest
+@Transactional
+class MemberServiceIntegrationTest {
 
-    MemberService memberService;
-    MemoryMemberRepository memberRepository; // 다른 레파지토리를 이용 중 같은 인스턴스를 하용하기 위해서 membersevice에서 final로 작성된 변수 변ㅡ
+    @Autowired  MemberService memberService;
+    @Autowired  MemoryMemberRepository memberRepository; // 다른 레파지토리를 이용 중 같은 인스턴스를 하용하기 위해서 membersevice에서 final로 작성된 변수 변ㅡ
 
-    @BeforeEach
-    public void beforeEach(){ // 같은 메모리 멤버 레파지토리를 사용. dependency injection
-        memberRepository = new MemoryMemberRepository();
-        memberService = new MemberService(memberRepository);
-    }
-    @AfterEach
-    public void afterEach(){
-        memberRepository.clearStore();
-    }
+//    @BeforeEach
+//    public void beforeEach(){ // 같은 메모리 멤버 레파지토리를 사용. dependency injection
+//        memberRepository = new MemoryMemberRepository();
+//        memberService = new MemberService(memberRepository);
+//    }
+//    @AfterEach
+//    public void afterEach(){
+//        memberRepository.clearStore();
+//    }
 
     @Test
-    void join() { // 빌드될 때 실제 코드에 포함되지 않으므로 한글로 이름을 작성해도 됨.(테스트만)
+    public void 회원가입() throws Exception { // 빌드될 때 실제 코드에 포함되지 않으므로 한글로 이름을 작성해도 됨.(테스트만)
         //given
         Member member = new Member();
         member.setName("hello");
@@ -42,7 +42,7 @@ class MemberServiceTest {
     }
 
     @Test
-    public void 중복_회원_예외(){
+    public void 중복_회원_예외() throws Exception {
         //given
         Member member1 = new Member();
         member1.setName("spring");
