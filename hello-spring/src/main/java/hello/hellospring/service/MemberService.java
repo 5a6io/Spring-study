@@ -37,9 +37,19 @@ public class MemberService {
 //        result.ifPresent(member1 -> {
 //            throw new IllegalStateException("이미 존재하는 회원입니다.");
 //        });
+        long start = System.currentTimeMillis();
 
-        duplicatedValidMember(member); //중복회원 검증
-        memberRepository.save(member);
+        try {
+            duplicatedValidMember(member); //중복회원 검증
+            memberRepository.save(member);
+
+        } finally {
+            long finish = System.currentTimeMillis();
+            long timeMs = finish - start;
+            System.out.println("join" + timeMs + "ms");
+        }
+
+
         return member.getId();
     }
 
@@ -52,7 +62,15 @@ public class MemberService {
 
     // 전체회원 조회
     public List<Member> findMembers() {
-        return memberRepository.findAll();
+        long start = System.currentTimeMillis();
+
+        try {
+            return memberRepository.findAll();
+        } finally {
+            long finish = System.currentTimeMillis();
+            long timeMs = finish - start;
+            System.out.println("findMembers " + timeMs + "ms");
+        }
     }
 
     public Optional<Member> findOne(Long memberId) {
