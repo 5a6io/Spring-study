@@ -42,15 +42,13 @@ public class MemberService {
         try {
             duplicatedValidMember(member); //중복회원 검증
             memberRepository.save(member);
+            return member.getId();
 
         } finally {
             long finish = System.currentTimeMillis();
             long timeMs = finish - start;
             System.out.println("join" + timeMs + "ms");
         }
-
-
-        return member.getId();
     }
 
     private void duplicatedValidMember(Member member) {
