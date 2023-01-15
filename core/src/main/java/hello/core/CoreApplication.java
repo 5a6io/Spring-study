@@ -9,5 +9,5 @@ public class CoreApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CoreApplication.class, args);
 	}
-
+	// 2023-01-15 순수 자바로만 작성
 }
