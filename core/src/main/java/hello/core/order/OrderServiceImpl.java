@@ -15,7 +15,7 @@ public class OrderServiceImpl implements OrderService {
     private final MemberRepository memberRepository;// = new MemoryMemberRepository(); // 회원정보 조회하기 위해서 필요
 
     @Autowired
-    private DiscountPolicy discountPolicy; // 인터페이스에만 의존
+    private final DiscountPolicy discountPolicy; // 인터페이스에만 의존
     // private final DiscountPolicy discountPolicy = new RateDiscountPolicy(); // 정률할인정책. 추상 인터페이스와 구현 클래스 둘 다 의존
     // private final DiscountPolicy discountPolicy = new FixDiscountPolicy(); // 고정할인정책
 
