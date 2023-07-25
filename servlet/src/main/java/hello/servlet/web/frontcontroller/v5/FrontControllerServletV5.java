@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet(name = "frontControllerServlerV5", urlPatterns = "/front-controller/v5/*")
+@WebServlet(name = "frontControllerServletV5", urlPatterns = "/front-controller/v5/*")
 public class FrontControllerServletV5 extends HttpServlet {
 
     private Map<String, Object> handlerMappingMap = new HashMap<>();
