@@ -21,7 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 /**
- * 트랜잯녀 -DataSource, transactionManager 자동 등록
+ * 트랜잭션 -DataSource, transactionManager 자동 등록
  */
 @Slf4j
 @SpringBootTest
